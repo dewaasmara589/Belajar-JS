@@ -1,22 +1,22 @@
 // Conditional Execution
+// Switch Case
 
-let yourYearOfBirth = Number(prompt("Kapan tahun lahirmu ?"))
+let cuacaHariIni = prompt('Bagaimana cuaca hari ini ?');
 
-// Ini adalah sebuah statement
-// Digunakan jika ada lebih dari 2 percabangan
-if (2020 - yourYearOfBirth < 17){
-  alert("Kamu maish kecil")
-} else {
-  alert("Kamu sudah tua")
+switch(cuacaHariIni) {
+  case "mendung":
+    alert("Jangan lupa bawa payung");
+    break;
+  case "panas":
+    alert("Jangan lupa berjemur");
+    break;
+  case "berawan":
+    alert("Silahkan main di luar");
+    break;
+  default:
+    alert("Cuaca kamu gak jelas");
+    break;
 }
-
-// Ternary Operator
-
-// Ini adalah sebuah expression dan dapat di embed
-// Digunakan saat ada 2 percabangan saja
-2020 - yourYearOfBirth < 17 ? alert("Kamu maish kecil") : alert("Kamu sudah tua")
-
-
 
 const projectTitle = document.querySelector("#project-title");
 projectTitle.textContent = "Title Baru dari JS File"
