@@ -1,18 +1,12 @@
 // Loop
 
-let count = 0;
+for (let i = 0; i <= 100; i = i + 2) {
+  console.log(i)
+}
 
-// while (count <= 12) {
-//   console.log(count)
-//   count += 2;
-// }
-
-do{
-  console.log(count);
-
-  count = count + 2;
-}while (count <= 12);
-
+for (let i = "*"; i.length <= 5; i = i + "*") {
+  console.log(i)
+}
 
 const projectTitle = document.querySelector("#project-title");
 projectTitle.textContent = "Title Baru dari JS File"
