@@ -1,58 +1,29 @@
-// Array of Object
+// Scope
 
-const tools = [
-  {
-    text: 'Ini adalah tugas 1',
-    isCompleted: false
-  },
-  {
-    text: 'Ini adalah tugas 2',
-    isCompleted: true
-  },
-  {
-    text: 'Ini adalah tugas 3',
-    isCompleted: false
-  },
-  {
-    text: 'Ini adalah tugas 4',
-    isCompleted: true
+// Global Scope
+var globalVar = "global variable"
+
+// Cara 1
+console.log(globalVar)
+
+// Cara 2 mengambil dari window atau global variable akan di masukkan ke window
+console.log(window.globalVar)
+
+const name = "John Doe"
+
+// Local Scope
+
+function myFunction() {
+  const name = "wegodev"
+
+  function insideFunc() {
+    console.log(name)
   }
-];
 
-const uncompletedTasks = tools.filter(myFunction)
-
-function myFunction(value) {
-  if (value.isCompleted === false) {
-    return value
-  }
+  insideFunc()
+  // console.log(name)
 }
 
-console.log(uncompletedTasks)
+myFunction()
 
-
-const todos = [
-  {
-    text: 'Ini adalah tugas 1',
-    isCompleted: false
-  },
-  {
-    text: 'Ini adalah tugas 2',
-    isCompleted: true
-  },
-  {
-    text: 'Ini adalah tugas 3',
-    isCompleted: false
-  },
-  {
-    text: 'Ini adalah tugas 4',
-    isCompleted: true
-  }
-];
-
-const uncompletedTasks2 = todos.filter(value => {
-  if (value.isCompleted === true) {
-    return value
-  }
-})
-
-console.log(uncompletedTasks2)
+// console.log(name) // Error karena tidak ada akases ke variable local
