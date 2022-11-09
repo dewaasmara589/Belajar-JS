@@ -11,9 +11,10 @@ const person = {
   nationality: 'Indonesia'
 }
 
-const personName = person.name.firstName;
+// membuat properties baru
+person.hairColor = "Brown"
+
+// mengubah properties karena resignment value karena keynya sama
+person.name.firstName = 'Jane'
 
 console.log(personName)
-
-// bracket notation
-// const personName2 = person["firstName"]
