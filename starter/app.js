@@ -1,17 +1,19 @@
 // Object
 
-// Nasted objek adalah jika ada objek dalam objek
-
-const person = {
-  name: {
-    firstName: 'John',
-    lastName: 'Doe'
-  },
-  age: 25,
-  nationality: 'Indonesia'
+const objects = {
+  a: 1,
+  b: 3,
+  c: 2
 }
 
-// menghapus object
-delete person.nationality
+// Object keys
+console.log(Object.keys(objects))
 
-console.log(person)
+// Object Assign
+
+const object1 = {a: 1, b: 3, c: 2}
+const object2 = {c: 4, d: 9}
+
+Object.assign(object1, object2)
+
+console.log(object1)
