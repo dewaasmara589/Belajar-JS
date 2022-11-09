@@ -11,10 +11,7 @@ const person = {
   nationality: 'Indonesia'
 }
 
-// membuat properties baru
-person.hairColor = "Brown"
+// menghapus object
+delete person.nationality
 
-// mengubah properties karena resignment value karena keynya sama
-person.name.firstName = 'Jane'
-
-console.log(personName)
+console.log(person)
