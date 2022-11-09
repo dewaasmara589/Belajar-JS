@@ -1,24 +1,13 @@
 // Array
 
-// Foreach
+// Filter akan return array baru berdasarkan value yang diinginkan
 
-const animals2 = ["kucing", "beruang", "jerapah", "gajah", "harimau"]
+const age = [25, 9, 10, 11, 15, 28, 30]
 
-animals2.forEach(myFunction)
+const filteredAge = age.filter(myFunction)
 
 function myFunction(value) {
-  console.log(value)
-  console.log(value + ' hidup')
+  return value >= 17
 }
 
-// Map mereturn array baru
-
-const numbers = [10, 20, 30, 40, 50]
-
-const numbersMultiplied = numbers.map(multiply)
-
-function multiply(value) {
-  return value * 2;
-}
-
-console.log(numbersMultiplied)
+console.log(filteredAge)
