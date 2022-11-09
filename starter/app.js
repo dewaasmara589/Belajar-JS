@@ -1,33 +1,9 @@
-/*
-// Hoisting Variables
+// Kumpulkan semua UI element
 
-x = 10  // assigning variable x
-y = 50  // assigning variable y
+const todoForm = document.querySelector("#todo-form");
+const todoInput = document.querySelector("#todo-input");
+const filterInput = document.querySelector("#filter-input");
+const todoList = document.querySelector("#todo-list");
+const clearButton = document.querySelector("#clear-button");
 
-console.log(x)
-console.log(y)  // nilai insialisasinya tidak ikut di hoisting
-
-// menggunakan var otomatis akan hoisting atau berada paling atas atau global scope
-var x;  // variable declaration
-
-var y = 20;  // variable inisilitation
-
-// let x; // hasilnya akan error
-
-*/
-
-// Hoasting function
-
-console.log(myFunction())  // invoke function
-console.log(myFunctionExp())  // error jika invoke function
-console.log(myFunctionExp)  // undefined karena sama seperti variable sebelumnya nilainya tidak dibawa saat hoisting
-
-// function declaration
-function myFunction() {
-  console.log("hello hoisting")
-}
-
-// function expression atau definition
-var myFunctionExp = function() {
-  console.log("hello hoisting")
-}
+console.log(todoForm)
