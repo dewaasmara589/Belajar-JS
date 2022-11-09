@@ -1,19 +1,58 @@
-// Object
+// Array of Object
 
-const objects = {
-  a: 1,
-  b: 3,
-  c: 2
+const tools = [
+  {
+    text: 'Ini adalah tugas 1',
+    isCompleted: false
+  },
+  {
+    text: 'Ini adalah tugas 2',
+    isCompleted: true
+  },
+  {
+    text: 'Ini adalah tugas 3',
+    isCompleted: false
+  },
+  {
+    text: 'Ini adalah tugas 4',
+    isCompleted: true
+  }
+];
+
+const uncompletedTasks = tools.filter(myFunction)
+
+function myFunction(value) {
+  if (value.isCompleted === false) {
+    return value
+  }
 }
 
-// Object keys
-console.log(Object.keys(objects))
+console.log(uncompletedTasks)
 
-// Object Assign
 
-const object1 = {a: 1, b: 3, c: 2}
-const object2 = {c: 4, d: 9}
+const todos = [
+  {
+    text: 'Ini adalah tugas 1',
+    isCompleted: false
+  },
+  {
+    text: 'Ini adalah tugas 2',
+    isCompleted: true
+  },
+  {
+    text: 'Ini adalah tugas 3',
+    isCompleted: false
+  },
+  {
+    text: 'Ini adalah tugas 4',
+    isCompleted: true
+  }
+];
 
-Object.assign(object1, object2)
+const uncompletedTasks2 = todos.filter(value => {
+  if (value.isCompleted === true) {
+    return value
+  }
+})
 
-console.log(object1)
+console.log(uncompletedTasks2)
