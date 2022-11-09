@@ -1,17 +1,19 @@
 // Object
 
+// Nasted objek adalah jika ada objek dalam objek
+
 const person = {
-  firstName: 'John',
-  lastName: 'Doe',
+  name: {
+    firstName: 'John',
+    lastName: 'Doe'
+  },
   age: 25,
   nationality: 'Indonesia'
 }
 
-console.log(person)
+const personName = person.name.firstName;
 
-const person2 = new Object()
-person2.firstName = "Jane"
-person2.lastName = "Doe"
-person2.age = 27;
+console.log(personName)
 
-console.log(person2)
+// bracket notation
+// const personName2 = person["firstName"]
