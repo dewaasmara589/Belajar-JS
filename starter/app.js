@@ -1,28 +1,24 @@
 // Array
 
-// Slice hanya mengambil dan membuat sebuah copy sehingga tidak mengubah array originalnya
-
-const animals = ["kucing", "beruang", "jerapah", "gajah", "harimau"]
-
-let hewanYangDiTangkap = animals.slice(1, 3)
-
-let hewanSisa = animals.slice(2)
-
-console.log(animals)
-
-console.log(hewanYangDiTangkap)
-
-console.log(hewanSisa)
-
-// Splice mengubah sebuah konten yang menghapus dan menggantinya original array
+// Foreach
 
 const animals2 = ["kucing", "beruang", "jerapah", "gajah", "harimau"]
 
-animals2.splice(2, 1, "Buaya")
+animals2.forEach(myFunction)
 
-console.log(animals2)
+function myFunction(value) {
+  console.log(value)
+  console.log(value + ' hidup')
+}
 
-// Jika hanya ingin menghapus
-animals2.splice(1, 3)
+// Map mereturn array baru
 
-console.log(animals2)
+const numbers = [10, 20, 30, 40, 50]
+
+const numbersMultiplied = numbers.map(multiply)
+
+function multiply(value) {
+  return value * 2;
+}
+
+console.log(numbersMultiplied)
