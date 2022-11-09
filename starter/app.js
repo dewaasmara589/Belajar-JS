@@ -1,29 +1,33 @@
-// Scope
+/*
+// Hoisting Variables
 
-// Global Scope
-var globalVar = "global variable"
+x = 10  // assigning variable x
+y = 50  // assigning variable y
 
-// Cara 1
-console.log(globalVar)
+console.log(x)
+console.log(y)  // nilai insialisasinya tidak ikut di hoisting
 
-// Cara 2 mengambil dari window atau global variable akan di masukkan ke window
-console.log(window.globalVar)
+// menggunakan var otomatis akan hoisting atau berada paling atas atau global scope
+var x;  // variable declaration
 
-const name = "John Doe"
+var y = 20;  // variable inisilitation
 
-// Local Scope
+// let x; // hasilnya akan error
 
+*/
+
+// Hoasting function
+
+console.log(myFunction())  // invoke function
+console.log(myFunctionExp())  // error jika invoke function
+console.log(myFunctionExp)  // undefined karena sama seperti variable sebelumnya nilainya tidak dibawa saat hoisting
+
+// function declaration
 function myFunction() {
-  const name = "wegodev"
-
-  function insideFunc() {
-    console.log(name)
-  }
-
-  insideFunc()
-  // console.log(name)
+  console.log("hello hoisting")
 }
 
-myFunction()
-
-// console.log(name) // Error karena tidak ada akases ke variable local
+// function expression atau definition
+var myFunctionExp = function() {
+  console.log("hello hoisting")
+}
