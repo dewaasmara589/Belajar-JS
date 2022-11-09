@@ -1,23 +1,28 @@
 // Array
 
-const array = [1, 2, 3, 4, 5]
+// Slice hanya mengambil dan membuat sebuah copy sehingga tidak mengubah array originalnya
 
-// Push method akan menambah sebuah value baru di berlakang array
-array.push(6)
+const animals = ["kucing", "beruang", "jerapah", "gajah", "harimau"]
 
-console.log(array)
+let hewanYangDiTangkap = animals.slice(1, 3)
 
-// Pop method menghilangkan sebuah value di belakang array, pop juga mereturn nilai yang dia remove
-array.pop()
-console.log(array.pop())
+let hewanSisa = animals.slice(2)
 
-console.log(array)
+console.log(animals)
 
-// Unshift dan shift method menambahkan dan menghapus sebuah value dari depan
-array.unshift(0)
+console.log(hewanYangDiTangkap)
 
-console.log(array)
+console.log(hewanSisa)
 
-array.shift()
+// Splice mengubah sebuah konten yang menghapus dan menggantinya original array
 
-console.log(array)
+const animals2 = ["kucing", "beruang", "jerapah", "gajah", "harimau"]
+
+animals2.splice(2, 1, "Buaya")
+
+console.log(animals2)
+
+// Jika hanya ingin menghapus
+animals2.splice(1, 3)
+
+console.log(animals2)
