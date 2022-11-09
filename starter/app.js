@@ -1,15 +1,18 @@
-// Functional Programming
+// Array
 
-const changeProjectHeadingTitle = (title) => {
-  const projectTitle = document.querySelector("#project-title");
+const array = [2, 4, 6, 18, 19, "sting", "wegodev", true]
 
-  if (typeof title === 'string') {
-    projectTitle.textContent = title;
-  }else {
-    console.error("Your Argument is not a string!")
-  }
+console.log(array[3])
+console.log(array.length)  // Digunakan untuk melooping array
 
-  projectTitle.textContent = title
+const kaliAngka = [1, 2, 3, 4, 5]
+
+for (let i = 0; i < kaliAngka.length; i++) {
+  kaliAngka[i] = kaliAngka[i]*2
 }
 
-changeProjectHeadingTitle("JavaScipt is Cool")
+console.log(kaliAngka)
+
+kaliAngka[0] = "satu";
+
+console.log(kaliAngka)
