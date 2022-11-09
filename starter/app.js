@@ -1,13 +1,17 @@
-// Array
+// Object
 
-// Filter akan return array baru berdasarkan value yang diinginkan
-
-const age = [25, 9, 10, 11, 15, 28, 30]
-
-const filteredAge = age.filter(myFunction)
-
-function myFunction(value) {
-  return value >= 17
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 25,
+  nationality: 'Indonesia'
 }
 
-console.log(filteredAge)
+console.log(person)
+
+const person2 = new Object()
+person2.firstName = "Jane"
+person2.lastName = "Doe"
+person2.age = 27;
+
+console.log(person2)
