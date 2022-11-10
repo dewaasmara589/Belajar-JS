@@ -7,6 +7,7 @@ const todoList = document.querySelector("#todo-list");
 const clearButton = document.querySelector("#clear-button");
 
 todoForm.addEventListener("submit", addTodo);
+todoList.addEventListener("click", deleteTodo);
 
 function addTodo(e) {
   e.preventDefault();
@@ -25,7 +26,7 @@ function addTodo(e) {
 
   // Memberi properti untuk element
   a.href = "#"
-  a.className = "badge badge-danger"
+  a.className = "badge badge-danger delete-todo"
 
   // Cara 2 Menambahkan child ke dalama element
   a.innerHTML = "Delete"
@@ -36,5 +37,22 @@ function addTodo(e) {
   // Memasukkan element li yang telah dibuat dengan JS ke dalam element todolist
   todoList.appendChild(li)
 
-  console.log(li)
+  // console.log(li)
+}
+
+function deleteTodo(e){
+  e.preventDefault(); // Supaya tidak ada page refresh
+
+  // Mengejek jika ui pada web diklik
+  // console.log(e.target)
+
+  if (e.target.classList.contains("delete-todo")){
+    // Mengakses parent element atau li
+    const parent = e.target.parentElement;
+
+    parent.remove()
+
+    // Mengecek mana parentnya
+    // console.log(parent)
+  }
 }
