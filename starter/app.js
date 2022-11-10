@@ -116,13 +116,27 @@ function deleteTodo(e){
 
       parent.remove()
 
+      deleteTodoLocalStorage(parent)
+
       // Mengecek mana parentnya
       // console.log(parent)
     }
   }
 }
 
-function clearTodos(e) {
+function deleteTodoLocalStorage(deletedElement) {
+  const todos = getItemFromLocalStorage()  // akan menghapus element li
+
+  todos.forEach((todo, index) => {
+    if (deletedElement.firstChild.textContent === todo) {
+      todos.splice(index, 1)
+    }
+  })
+
+  localStorage.setItem('todos', JSON.stringify(todos))
+}
+
+function clearTodos() {
   todoList.innerHTML = ""
 }
 
