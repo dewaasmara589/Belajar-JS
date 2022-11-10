@@ -28,9 +28,37 @@ function innediateLoadEventListner() {
   filterInput.addEventListener("keyup", filterTodos);
 }
 
-// Ini adalah DOM function
+// Reusable code
+function createTodoElement(value) {
+  // Membuat li element
+  const li = document.createElement("li")
 
-function getTodos(e) {
+  // Menambahkan class pada element li
+  li.className = "todo-item list-group-item d-flex justify-content-between align-items-center mb-1"
+
+  // Cara 1 Menambahkan children ke dalam element li
+  li.appendChild(document.createTextNode(value))
+
+  // Membuat delete button
+  const a = document.createElement("a")
+
+  // Memberi properti untuk element
+  a.href = "#"
+  a.className = "badge badge-danger delete-todo"
+
+  // Cara 2 Menambahkan child ke dalama element
+  a.innerHTML = "Delete"
+
+  // Menyelipkan elemet a ke children li
+  li.appendChild(a)
+
+  // Memasukkan element li yang telah dibuat dengan JS ke dalam element todolist
+  todoList.appendChild(li)
+
+  // console.log(li)
+}
+
+function getItemFromLocalStorage() {
   let todos;
 
   if (localStorage.getItem("todos") == null) {
@@ -39,31 +67,16 @@ function getTodos(e) {
     todos = JSON.parse(localStorage.getItem("todos"))
   }
 
+  return todos;
+}
+
+// Ini adalah DOM function
+
+function getTodos(e) {
+  const todos = getItemFromLocalStorage()
+
   todos.forEach((todo) => {
-    // Membuat li element
-    const li = document.createElement("li")
-
-    // Menambahkan class pada element li
-    li.className = "todo-item list-group-item d-flex justify-content-between align-items-center mb-1"
-
-    // Cara 1 Menambahkan children ke dalam element li
-    li.appendChild(document.createTextNode(todo))
-
-    // Membuat delete button
-    const a = document.createElement("a")
-
-    // Memberi properti untuk element
-    a.href = "#"
-    a.className = "badge badge-danger delete-todo"
-
-    // Cara 2 Menambahkan child ke dalama element
-    a.innerHTML = "Delete"
-
-    // Menyelipkan elemet a ke children li
-    li.appendChild(a)
-
-    // Memasukkan element li yang telah dibuat dengan JS ke dalam element todolist
-    todoList.appendChild(li)
+    createTodoElement(todo)
   })
 }
 
@@ -71,32 +84,7 @@ function addTodo(e) {
   e.preventDefault();
 
   if (todoInput.value) {
-    // Membuat li element
-    const li = document.createElement("li")
-
-    // Menambahkan class pada element li
-    li.className = "todo-item list-group-item d-flex justify-content-between align-items-center mb-1"
-
-    // Cara 1 Menambahkan children ke dalam element li
-    li.appendChild(document.createTextNode(todoInput.value))
-
-    // Membuat delete button
-    const a = document.createElement("a")
-
-    // Memberi properti untuk element
-    a.href = "#"
-    a.className = "badge badge-danger delete-todo"
-
-    // Cara 2 Menambahkan child ke dalama element
-    a.innerHTML = "Delete"
-
-    // Menyelipkan elemet a ke children li
-    li.appendChild(a)
-
-    // Memasukkan element li yang telah dibuat dengan JS ke dalam element todolist
-    todoList.appendChild(li)
-
-    // console.log(li)
+    createTodoElement(todoInput.value)
 
     addTodoLocalStorage(todoInput.value)
 
@@ -108,13 +96,7 @@ function addTodo(e) {
 }
 
 function addTodoLocalStorage(todoInputValue) {
-  let todos;
-
-  if (localStorage.getItem("todos") == null) {
-    todos = []
-  }else {
-    todos = JSON.parse(localStorage.getItem("todos"))
-  }
+  const todos = getItemFromLocalStorage()
 
   todos.push(todoInputValue)
 
