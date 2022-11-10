@@ -37,6 +37,9 @@ function addTodo(e) {
   // Memasukkan element li yang telah dibuat dengan JS ke dalam element todolist
   todoList.appendChild(li)
 
+  // Agar input kosong setelah di addTodo
+  todoInput.value = ""  
+
   // console.log(li)
 }
 
@@ -46,13 +49,15 @@ function deleteTodo(e){
   // Mengejek jika ui pada web diklik
   // console.log(e.target)
 
-  if (e.target.classList.contains("delete-todo")){
-    // Mengakses parent element atau li
-    const parent = e.target.parentElement;
+  if (e.target.classList.contains("delete-todo")) {
+    if (confirm("Apakah Yakin akan Menghapus ?")) {   // akan menghasilkan nilai true jika ok
+      // Mengakses parent element atau li
+      const parent = e.target.parentElement;
 
-    parent.remove()
+      parent.remove()
 
-    // Mengecek mana parentnya
-    // console.log(parent)
+      // Mengecek mana parentnya
+      // console.log(parent)
+    }
   }
 }
