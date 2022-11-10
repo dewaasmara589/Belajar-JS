@@ -6,10 +6,14 @@ const filterInput = document.querySelector("#filter-input");
 const todoList = document.querySelector("#todo-list");
 const clearButton = document.querySelector("#clear-todos");
 
+// Ini adalah kumpulan eventListner
+
 todoForm.addEventListener("submit", addTodo);
 todoList.addEventListener("click", deleteTodo);
 clearButton.addEventListener("click", clearTodos);
 filterInput.addEventListener("keyup", filterTodos)
+
+// Ini adalah DOM function
 
 function addTodo(e) {
   e.preventDefault();
@@ -42,11 +46,27 @@ function addTodo(e) {
 
     // console.log(li)
 
+    addTodoLocalStorage(todoInput.value)
+
     // Agar input kosong setelah di addTodo
-    todoInput.value = ""  
+    todoInput.value = ""
   }else {
     alert("Tulis sebuah todo, tidak boleh kosong")
   }
+}
+
+function addTodoLocalStorage(todoInputValue) {
+  let todos;
+
+  if (localStorage.getItem("todos") == null) {
+    todos = []
+  }else {
+    todos = JSON.parse(localStorage.getItem("todos"))
+  }
+
+  todos.push(todoInputValue)
+
+  localStorage.setItem("todos", JSON.stringify(todos))
 }
 
 function deleteTodo(e){
