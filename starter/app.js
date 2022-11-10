@@ -12,35 +12,39 @@ todoList.addEventListener("click", deleteTodo);
 function addTodo(e) {
   e.preventDefault();
 
-  // Membuat li element
-  const li = document.createElement("li")
+  if (todoInput.value) {
+    // Membuat li element
+    const li = document.createElement("li")
 
-  // Menambahkan class pada element li
-  li.className = "list-group-item d-flex justify-content-between align-items-center mb-1"
+    // Menambahkan class pada element li
+    li.className = "list-group-item d-flex justify-content-between align-items-center mb-1"
 
-  // Cara 1 Menambahkan children ke dalam element li
-  li.appendChild(document.createTextNode(todoInput.value))
+    // Cara 1 Menambahkan children ke dalam element li
+    li.appendChild(document.createTextNode(todoInput.value))
 
-  // Membuat delete button
-  const a = document.createElement("a")
+    // Membuat delete button
+    const a = document.createElement("a")
 
-  // Memberi properti untuk element
-  a.href = "#"
-  a.className = "badge badge-danger delete-todo"
+    // Memberi properti untuk element
+    a.href = "#"
+    a.className = "badge badge-danger delete-todo"
 
-  // Cara 2 Menambahkan child ke dalama element
-  a.innerHTML = "Delete"
+    // Cara 2 Menambahkan child ke dalama element
+    a.innerHTML = "Delete"
 
-  // Menyelipkan elemet a ke children li
-  li.appendChild(a)
+    // Menyelipkan elemet a ke children li
+    li.appendChild(a)
 
-  // Memasukkan element li yang telah dibuat dengan JS ke dalam element todolist
-  todoList.appendChild(li)
+    // Memasukkan element li yang telah dibuat dengan JS ke dalam element todolist
+    todoList.appendChild(li)
 
-  // Agar input kosong setelah di addTodo
-  todoInput.value = ""  
+    // console.log(li)
 
-  // console.log(li)
+    // Agar input kosong setelah di addTodo
+    todoInput.value = ""  
+  }else {
+    alert("Tulis sebuah todo, tidak boleh kosong")
+  }
 }
 
 function deleteTodo(e){
