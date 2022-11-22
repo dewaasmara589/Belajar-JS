@@ -1,6 +1,6 @@
 function animationIntro() {
     $("#text span").velocity("transition.slideLeftIn",{ 
-                                stagger: 250,
+                                stagger: 150,
                                 complete: function(){
                                     animationButtonStart();
                                 }
@@ -15,6 +15,16 @@ function animationButtonStart() {
                 .mouseleave(function(){
                     $(this).velocity({width:125});
                 });
+}
+
+function animasiIntroOut() {
+    $("#start").velocity("transition.whirlOut",{ 
+                            stagger: 250,
+                            complete: function(){
+                                $("#text").velocity({"font-size":"20px", "top":"95%"},
+                                                    {duration: 1000})
+                            }
+                        });
 }
 
 $(document).ready(function() {
