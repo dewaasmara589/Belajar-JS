@@ -39,7 +39,11 @@ function success(position){
 }
 
 function error(){
-    alert('Posisi tidak dapat di akses');
+    // Default latitude & longitude Jakarta
+    prayerTime('-6.200000', '106.816666');
+
+    // Default latitude & longitude Makassar supaya terlihat perbedaan saat block akses lokasi 
+    // prayerTime('-5.135399', '119.423790');
 }
 
 function userLocation(){
