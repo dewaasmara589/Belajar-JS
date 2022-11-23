@@ -61,6 +61,8 @@ html, body {
     font-weight: bold;
     font-size: 12px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 #menu ul li a:hover{

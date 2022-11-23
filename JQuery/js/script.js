@@ -24,7 +24,9 @@ function animasiIntroOut() {
                                 $("#text").velocity({"font-size":"20px", "top":"95%"},
                                                     {duration: 1000,
                                                     complete: function(){
-                                                        callMenu()
+                                                        callMenu();
+
+                                                        $("#menu ul li a[href='what-we-do']").trigger("click");
                                                     }
                                                     })
                             }
