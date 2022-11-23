@@ -1,6 +1,18 @@
-function success(position){
-    console.log(position);
+function prayerTime(latitude, longitude) {
+    fetch('http://api.aladhan.com/v1/calendar?latitude=' + latitude + '&longitude=' + longitude + '&method=2')
+    .then(response => response.json())
+    .then(function(response){
+        console.log(response.data[0]);
+    });
 }
+
+function success(position){
+    // coords.latitude & coords.longtitude dapat dilihat pada
+    // console.log(position);
+
+    prayerTime(position.coords.latitude, position.coords.longitude);
+}
+
 function error(){
     alert('Posisi tidak dapat di akses');
 }
