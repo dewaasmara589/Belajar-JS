@@ -33,6 +33,16 @@ function animasiIntroOut() {
 
 function callMenu(){
     $("#menu ul li").velocity("transition.slideLeftIn",{stagger: 150});
+
+    $("#menu ul li a").click(function(){
+        // Cara 1
+        // $(this).parent("li").addClass("active");
+
+        // $(this).parent("li").siblings().removeClass("active");
+    
+        // Cara 2
+        $(this).parent("li").addClass("active").siblings().removeClass("active");
+    })
 }
 
 $(document).ready(function() {
