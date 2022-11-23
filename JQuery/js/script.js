@@ -26,7 +26,7 @@ function animasiIntroOut() {
                                                     complete: function(){
                                                         callMenu();
 
-                                                        $("#menu ul li a[href='what-we-do']").trigger("click");
+                                                        $("#menu ul li a[href='what_we_do']").trigger("click");
                                                     }
                                                     })
                             }
@@ -36,7 +36,9 @@ function animasiIntroOut() {
 function callMenu(){
     $("#menu ul li").velocity("transition.slideLeftIn",{stagger: 150});
 
-    $("#menu ul li a").click(function(){
+    $("#menu ul li a").click(function(event){
+        event.preventDefault();
+
         // Cara 1
         // $(this).parent("li").addClass("active");
 
@@ -44,7 +46,18 @@ function callMenu(){
     
         // Cara 2
         $(this).parent("li").addClass("active").siblings().removeClass("active");
+    
+        var hrefString = $(this).attr("href");
+        $("#"+hrefString).show();
+
+        window[hrefString]();
     })
+}
+
+function what_we_do(){
+    $("#what_we_do img").velocity("transition.flipYIn", {duration: 1500});
+    $("#what_we_do .title").velocity("transition.slideUpIn", {duration: 1500});
+    $("#what_we_do div").velocity("transition.slideDownIn", {duration: 1500});
 }
 
 $(document).ready(function() {
