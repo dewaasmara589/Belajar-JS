@@ -61,8 +61,13 @@ h4{
     backface-visibility:hidden;
 }
 
-.kartu:hover{
+.buka, .betul{
     transform: rotateY(180deg);
+}
+
+/* Agar jika jawaban betul tidak dapat di klik kembali */
+.betul{
+    pointer-events: none;
 }
 
 #game{

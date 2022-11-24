@@ -1,4 +1,5 @@
 let jumlahKartu = 5;
+let kartuPertama = kartuKedua = 0;
 
 function buatAngka(){
     let angkaBerurutan = [];
@@ -23,13 +24,40 @@ function periapkanKartu(angkaAcak){
     let str = '';
 
     angkaAcak.forEach(function(i){
-        str += '<div class="kartu">'+
+        str += '<div class="kartu" nilai="'+ i +'">'+
                 '<div class="belakang">'+ i +'</div>'+
                 '<div class="depan">Kartu</div>'+
                 '</div>';
     })
 
     $('#game').append(str);
+}
+
+function aturanMain(){
+    $('.kartu').on('click', function(){
+        $(this).addClass('buka');
+    
+        if(kartuPertama == 0){
+            // Cara 1
+            kartuPertama = $(this).attr('nilai');
+
+            // Cara 2 - Jika ingin mengambil dari class belakang
+            // kartuPertama = $(this).children('.belakang').text();
+        }else{
+            kartuKedua = $(this).attr('nilai');
+
+            if(kartuPertama == kartuKedua){
+                $(".buka").addClass('betul');
+                $(".betul").removeClass('buka');
+                kartuPertama = kartuKedua = 0;
+            }else{
+                kartuPertama = kartuKedua = 0;
+                $(this).one("transitionend", function(){
+                    $(".kartu").removeClass('buka');
+                });
+            }
+        }
+    });
 }
 
 $(document).ready(function(){
@@ -39,6 +67,8 @@ $(document).ready(function(){
 
     periapkanKartu(angkaAcak);
 
+    aturanMain();
+
     // console.log("Angka Berurutan: " + angkaBerurut);
-    console.log("Angka Acak: " + angkaAcak);
+    // console.log("Angka Acak: " + angkaAcak);
 })
